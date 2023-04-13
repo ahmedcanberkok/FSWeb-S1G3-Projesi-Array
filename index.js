@@ -40,10 +40,12 @@ Aşağıdakileri yapmak için aşağıdaki kopyalama işlevini kullanın:
 */
 
 
-function kopyala(/*kod buraya*/){
+function kopyala( marketSepeti ){
+  const yeniSepet = marketSepeti;
+  return yeniSepet ;
   /*kod buraya*/
 }
-
+console.log("G1",kopyala(orijinalTatlar))
 
 /* Görev 2:
 Bir dizinin tam olarak 25 çeşit olduğunu onaylayın. İşleviniz şunları kabul etmelidir:
@@ -56,13 +58,22 @@ Bir dizinin tam olarak 25 çeşit olduğunu onaylayın. İşleviniz şunları ka
 */
 
 
-function dizi25Cesitmi(/*kod buraya*/){
-  /*kod buraya*/
+function dizi25Cesitmi( birDizi){
+  console.log("dizi25cesitmi", birDizi.length);
+  if(birDizi.length==25){
+    return true;
+  } 
+  else {
+    return false; 
+  }
+
 }
+dizi25Cesitmi(orijinalTatlar);
 
 
 /* Görev 3:
-Pastane sahibi size yeni bir lezzet fikriyle geldi: Kakule! Bunun da çok tutacağından çok emin. Bu lezzeti eklemek için diziyi değiştirmeniz gerekir.
+Pastane sahibi size yeni bir lezzet fikriyle geldi: Kakule! Bunun da çok tutacağından çok emin. 
+Bu lezzeti eklemek için diziyi değiştirmeniz gerekir.
 
 Aşağıdakileri yapmak için cesitEkle işlevini kullanın:
    1. İlk parametrede tatlar dizisini argüman olarak alan bir dizi alın
@@ -74,9 +85,13 @@ Aşağıdakileri yapmak için cesitEkle işlevini kullanın:
 */
 
 
-function cesitEkle(/*kod buraya*/){
-  /*kod buraya*/
-}
+function cesitEkle(arr,string){
+  const yeniDizi = [...orijinalTatlar]
+   arr= yeniDizi.unshift(string);
+   console.log("GÖREV-3 : " ,yeniDizi);
+  return;
+  }
+  cesitEkle(orijinalTatlar,'Kakule')
 
 
 /* Cörev 4:
@@ -92,9 +107,12 @@ Aşağıdakileri yapmak için sonCesitiKaldir işlevini kullanın:
 */
 
 
-function sonCesitiKaldir(/*kod buraya*/){
-  /*kod buraya*/
+function sonCesitiKaldir(tatlar){
+ orijinalTatlar.pop() ;
+  console.log("GÖREV-4 :", orijinalTatlar);
+  
 }
+sonCesitiKaldir() ;
 
 
 /* Görev 5:
@@ -108,14 +126,18 @@ Aşağıdakileri yapmak için aşağıdaki indekstekiCesitiGetir işlevini kulla
    Örneğin: indekstekiCesitiGetir(orijinalTatlar, 2) çalıştırılmasıyla, Kakule'in başarıyla eklendiği varsayarsak sonuç "Ceviz" olucaktır.
 */
 
-function indekstekiCesitiGetir(/*kod buraya*/){
+function indekstekiCesitiGetir(tatlar, sira){
+  // console.log(indekstekiCesitiGetir(tatlar)w);
+  return tatlar [tatlar] ;
+
   /*kod buraya*/
 }
-
+indekstekiCesitiGetir(orijinalTatlar) ;
 
 /* Görev 6:
 
-Firma, ürün yelpazesine daha fazla lezzet eklemek istediğinden, sadece ilk veya son aromayı keyfi olarak çıkarmak yerine, aroma adına göre aromaları kaldırmaları gerektiğini fark ederler. Göreviniz, verilen bir dizinde, ada göre bu tadı diziden çıkarmak.
+Firma, ürün yelpazesine daha fazla lezzet eklemek istediğinden, sadece ilk veya son aromayı keyfi olarak çıkarmak yerine, 
+aroma adına göre aromaları kaldırmaları gerektiğini fark ederler. Göreviniz, verilen bir dizinde, ada göre bu tadı diziden çıkarmak.
 
 Aşağıdakileri yapmak için ismeGoreCesitCikar işlevini kullanın:
    1. İlk parametrede tatlar dizisini argüman olarak alın
@@ -123,14 +145,18 @@ Aşağıdakileri yapmak için ismeGoreCesitCikar işlevini kullanın:
    3. Alınan diziden alınan aromayı kaldırın
    4. Artık bir tane daha az lezzet içeren sonuçtaki diziyi döndürün
 
-  Örneğin:  ismeGoreCesitCikar(orijinalTatlar, "Tarçın") çalıştırılmasıyla,  "Tarçın" aroması kaldırılacağından uzunluğu 24 olan bir dizi döndürülür.
+  Örneğin:  ismeGoreCesitCikar(orijinalTatlar, "Tarçın") çalıştırılmasıyla,  "Tarçın" aroması kaldırılacağından 
+  uzunluğu 24 olan bir dizi döndürülür.
 
   İPUCU: Bunun için .splice() kullanabilirsiniz.
 */
 
-function ismeGoreCesitCikar(/*kod buraya*/){
-  /*kod buraya*/
+function ismeGoreCesitCikar(tatlar,alerjen){
+
+  orijinalTatlar.splice(11,1);
+  console.log("GÖREV-6 :",orijinalTatlar)
 }
+ismeGoreCesitCikar(orijinalTatlar,"Tarçın") ;
 
 
 /* Görev 7:
@@ -154,8 +180,16 @@ Aşağıdakileri yapmak için ismeGoreFiltrele işlevini kullanın:
 */
 
 
-function ismeGoreFiltrele(/*kod buraya*/){
+function ismeGoreFiltrele(tatlar,filtreDegeri){
   /*kod buraya*/
+  let secilmisUrunler = [] ;
+  for (let i = 0; i<tatlar.length; i++){
+if(tatlar[i].includes(filtreDegeri) ) {
+  console.log("ifin içindeki",tatlar[i]);
+  secilmisUrunler.push(tatlar[i]);
+}
+  }
+  return secilmisUrunler ;
 }
 
 
